@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-route.js"></script>
+    <script src="scripts/components.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style type="text/css">
+      html, body, input, select, textarea{
+        font-size: 1.05em !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">AngularJS</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#/"><i class="fa fa-home"></i>Home</a></li>
+            <li><a href="#/second/3"><i></i>Second</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div>
+        <div ng-view></div>
+      </div>
+    </div>
+  </body>
+</html>
+

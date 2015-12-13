@@ -1,0 +1,83 @@
+<!doctype html>
+<html ng-app="myApp">
+  <head>
+    <script src="scripts/angular.js"></script>
+    <script src="scripts/angular-messages.js"></script>
+    <script src="scripts/angular-resource.js"></script>
+    <script src="scripts/app.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.css">
+
+    <style type="text/css">
+      html, body, input, select, textarea{
+        font-size: 1.05em !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-default">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">AngularJS</a>
+          </div>
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><i class=""></i>Home</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <div class="container">
+      <div ng-controller="mainController3">
+        <div ng-cloak>{{name}}</div>
+        <input type="button" value="Click me" ng-click="alertClick()"/>
+      </div>
+
+      <div ng-controller="mainController2">
+        <div>
+          <label>What is your twitter handle?</label>
+          <input type="text" ng-model="handle"/>
+        </div>
+
+        <div class="alert" ng-class="{'alert-warning': handle.length < characters, 'alert-danger': handle.length > characters}" ng-show="handle.length !== characters">
+          <div ng-show="handle.length < characters">
+            You have less than 5 characters!
+          </div>
+          <div ng-show="handle.length > characters">
+            You have more than 5 characters!
+          </div>
+        </div>
+        <hr />
+
+        <h1>twitter.com/{{lowercasehandle()}}</h1>
+        <h3>Rules</h3>
+        <ul>
+          <li ng-repeat="rule in rules">
+            {{rule.rulename}}
+          </li>
+        </ul>
+        Add rule: <input type="text" ng-model="newRule"/> <a href="#a" class="btn btn-default" ng-click="addRule()">Add</a>
+      </div>
+
+      <div ng-controller="mainController1">
+        <h1>Hello {{name + '. How are you?'}}</h1>
+
+        <form name="myForm">
+          <label>
+            Enter text:
+            <input type="text" ng-model="field" name="myField" required minlength="5" value="{{name}}" />
+          </label>
+          <div ng-messages="myForm.myField.$error" role="alert">
+            <div ng-message="required" class="alert alert-danger">You did not enter a field</div>
+            <div ng-message="minlength, maxlength" class="alert alert-danger">
+              Your email must be between 5 and 100 characters long
+            </div>
+          </div>
+        </form>
+      </div>
+
+
+
+    </div>
+  </body>
+</html>
+
